@@ -1,4 +1,5 @@
 ﻿using PersonaModdingMetadata.Shared;
+using PersonaModdingMetadata.Shared.Games;
 
 namespace Persona.Encounters.Types.Common;
 
@@ -6,25 +7,31 @@ public abstract class BaseEncounterTbl<TEncounter>
     where TEncounter : IEncounter
 {
     public BaseEncounterTbl(
+        Game game,
         string file,
         int entrySize,
         IEncounterFactory<TEncounter> factory,
         bool isBigEndian = false)
     {
+        this.Game = game;
         var stream = new FileStream(file, FileMode.Open, FileAccess.Read);
         this.Encounters = GetEncounters(stream, entrySize, factory, isBigEndian);
     }
 
     public BaseEncounterTbl(
+        Game game,
         Stream stream,
         int entrySize,
         IEncounterFactory<TEncounter> factory,
         bool isBigEndian = false)
     {
+        this.Game = game;
         this.Encounters = GetEncounters(stream, entrySize, factory, isBigEndian);
     }
 
     public TEncounter[] Encounters { get; }
+
+    public Game Game { get; }
 
     private static TEncounter[] GetEncounters(
         Stream stream,

@@ -18,4 +18,12 @@ public abstract class BaseEncounter<TEnemy, TMusic> : IEncounter
     public TMusic Music { get; set; }
 
     public abstract bool IsSpecialBattle { get; }
+
+    public string Name
+    {
+        get
+        {
+            return string.Join(", ", this.BattleUnits.Where(x => (ushort)(object)x != 0).Select(x => x.ToString()));
+        }
+    }
 }

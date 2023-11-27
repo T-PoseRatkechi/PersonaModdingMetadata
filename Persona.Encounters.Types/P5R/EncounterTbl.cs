@@ -1,16 +1,17 @@
 ﻿using Persona.Encounters.Types.Common;
+using PersonaModdingMetadata.Shared.Games;
 
 namespace Persona.Encounters.Types.P5R;
 
 public class EncounterTbl : BaseEncounterTbl<Encounter>
 {
     public EncounterTbl(string file)
-        : base(file, 44, new EncounterFactory(), true)
+        : base(Game.P5R_PC, file, 44, new EncounterFactory(), true)
     {
     }
 
     public EncounterTbl(Stream stream)
-        : base(stream, 44, new EncounterFactory(), true)
+        : base(Game.P5R_PC, stream, 44, new EncounterFactory(), true)
     {
     }
 }

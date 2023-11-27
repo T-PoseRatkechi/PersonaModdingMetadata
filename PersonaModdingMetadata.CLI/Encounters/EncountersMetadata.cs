@@ -1,6 +1,7 @@
 ﻿using Persona.Encounters.Types.Common;
 using PersonaModdingMetadata.Shared.Games;
 using PersonaModdingMetadata.Shared.Serializers;
+using Serilog;
 
 namespace PersonaModdingMetadata.CLI.Encounters;
 
@@ -28,7 +29,7 @@ internal class EncountersMetadata
         var encountFile = Path.Join(originalDir, "ENCOUNT.TBL");
         if (!File.Exists(encountFile))
         {
-            Console.WriteLine($"Missing: {encountFile}");
+            Log.Warning("Missing: {file}", encountFile);
             return;
         }
 
@@ -51,28 +52,29 @@ internal class EncountersMetadata
     private void Generate_P4G(string file)
     {
         var encounterTbl = new Persona.Encounters.Types.P4G.EncounterTbl(file);
-        this.GenerateSpecialBattles(Game.P4G_PC, encounterTbl.Encounters);
+        this.GenerateSpecialBattles(encounterTbl);
     }
 
     private void Generate_P5R(string file)
     {
         var encounterTbl = new Persona.Encounters.Types.P5R.EncounterTbl(file);
-        this.GenerateSpecialBattles(Game.P5R_PC, encounterTbl.Encounters);
+        this.GenerateSpecialBattles(encounterTbl);
     }
 
     private void Generate_P3P(string file)
     {
         var encounterTbl = new Persona.Encounters.Types.P3P.EncounterTbl(file);
-        this.GenerateSpecialBattles(Game.P3P_PC, encounterTbl.Encounters);
+        this.GenerateSpecialBattles(encounterTbl);
     }
 
-    private void GenerateSpecialBattles(Game game, IEncounter[] encounters)
+    private void GenerateSpecialBattles<TEncounter>(BaseEncounterTbl<TEncounter> encounterTbl)
+        where TEncounter : IEncounter
     {
-        var collectionsDir = Path.Join(game.GameFolder(this.baseDir), "collections");
+        var collectionsDir = Path.Join(encounterTbl.Game.GameFolder(this.baseDir), "collections");
         Directory.CreateDirectory(collectionsDir);
 
         var specialBattlesFile = Path.Join(collectionsDir, "Special Battles.enc");
-        NewLineSerializer.Serialize(specialBattlesFile, encounters.Where(x => x.IsSpecialBattle).Select(x => x.Id));
+        CollectionSerializer.Serialize(specialBattlesFile, encounterTbl.Encounters.Where(x => x.IsSpecialBattle).Select(x => $"// {x.Name}\n{x.Id}\n"));
         Console.WriteLine(specialBattlesFile);
     }
 }

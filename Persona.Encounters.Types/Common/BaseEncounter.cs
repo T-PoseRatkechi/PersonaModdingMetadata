@@ -1,6 +1,6 @@
 ﻿namespace Persona.Encounters.Types.Common;
 
-public abstract class BaseEncounter<TEnemy, TMusic>
+public abstract class BaseEncounter<TEnemy, TMusic> : IEncounter
     where TEnemy : Enum
     where TMusic : Enum
 {
@@ -16,4 +16,6 @@ public abstract class BaseEncounter<TEnemy, TMusic>
     public TEnemy[] BattleUnits { get; set; }
 
     public TMusic Music { get; set; }
+
+    public abstract bool IsSpecialBattle { get; }
 }

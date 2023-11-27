@@ -3,6 +3,7 @@
 namespace Persona.Encounters.Types.Common;
 
 public abstract class BaseEncounterTbl<TEncounter>
+    where TEncounter : IEncounter
 {
     public BaseEncounterTbl(
         string file,

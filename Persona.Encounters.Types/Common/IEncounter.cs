@@ -6,5 +6,7 @@ public interface IEncounter
 
     string Name { get; }
 
-    bool IsSpecialBattle { get; }
+    public ushort[] BattleUnitsIds { get; }
+
+    public ushort MusicId { get; }
 }

@@ -17,8 +17,6 @@ public abstract class BaseEncounter<TEnemy, TMusic> : IEncounter
 
     public TMusic Music { get; set; }
 
-    public abstract bool IsSpecialBattle { get; }
-
     public string Name
     {
         get
@@ -26,4 +24,8 @@ public abstract class BaseEncounter<TEnemy, TMusic> : IEncounter
             return string.Join(", ", this.BattleUnits.Where(x => (ushort)(object)x != 0).Select(x => x.ToString()));
         }
     }
+
+    public ushort[] BattleUnitsIds => this.BattleUnits.Select(x => (ushort)(object)x).ToArray();
+
+    public ushort MusicId => (ushort)(object)this.Music;
 }

@@ -1,10 +1,19 @@
 ﻿namespace Persona.Encounters.Types.Common;
 
-public class BaseEncounter<TEnemy, TMusic>
+public abstract class BaseEncounter<TEnemy, TMusic>
     where TEnemy : Enum
     where TMusic : Enum
 {
-    public TEnemy[] BattleUnits { get; set; } = Array.Empty<TEnemy>();
+    public BaseEncounter(EncounterData data)
+    {
+        this.Id = data.Id;
+        this.BattleUnits = data.BattleUnitsIds.Select(x => (TEnemy)(object)x).ToArray();
+        this.Music = (TMusic)(object)data.MusicId;
+    }
 
-    public TMusic? Music { get; set; }
+    public int Id { get; set; }
+
+    public TEnemy[] BattleUnits { get; set; }
+
+    public TMusic Music { get; set; }
 }

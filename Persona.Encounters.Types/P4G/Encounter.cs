@@ -8,6 +8,4 @@ public class Encounter : BaseEncounter<BattleUnit, Music>
         : base(data)
     {
     }
-
-    public override bool IsSpecialBattle => this.Music != Music.TimeToMakeHistory;
 }

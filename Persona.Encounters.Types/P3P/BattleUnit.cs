@@ -1,6 +1,6 @@
 ﻿namespace Persona.Encounters.Types.P3P;
 
-public enum BattleUnits
+public enum BattleUnit
     : ushort
 {
     Enemy000 = 0,

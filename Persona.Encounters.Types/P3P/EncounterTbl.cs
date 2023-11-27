@@ -2,15 +2,15 @@
 
 namespace Persona.Encounters.Types.P3P;
 
-public class EncounterTbl : BaseEncounterTbl<BattleUnits, Music>
+public class EncounterTbl : BaseEncounterTbl<Encounter>
 {
     public EncounterTbl(string file)
-        : base(file, 28)
+        : base(file, 28, new EncounterFactory())
     {
     }
 
     public EncounterTbl(Stream stream)
-        : base(stream, 28)
+        : base(stream, 28, new EncounterFactory())
     {
     }
 }

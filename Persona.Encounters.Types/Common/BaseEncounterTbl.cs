@@ -51,7 +51,7 @@ public abstract class BaseEncounterTbl<TEncounter>
             br.BaseStream.Seek(offset, SeekOrigin.Begin);
 
             // Skip flags and field04/06
-            br.BaseStream.Position += 6;
+            br.BaseStream.Position += 8;
             var battleUnits = new ushort[]
             {
                 isBigEndian ? br.ReadUInt16().ToBigEndian() : br.ReadUInt16(),

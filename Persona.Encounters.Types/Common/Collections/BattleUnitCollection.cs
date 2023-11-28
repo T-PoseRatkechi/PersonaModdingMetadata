@@ -8,10 +8,17 @@ internal class BattleUnitCollection<TEncounter, TEnemy> : IEncounterFilter<TEnco
     where TEnemy : Enum
 {
     private readonly ushort[] units;
+    private readonly bool includesAll;
 
-    public BattleUnitCollection(TEnemy[] units)
+    /// <summary>
+    /// Battle units collection.
+    /// </summary>
+    /// <param name="units">Units to match for in encounters.</param>
+    /// <param name="includesAll">Whether an encounter needs to include all units.</param>
+    public BattleUnitCollection(TEnemy[] units, bool includesAll = false)
     {
         this.units = units.Select(x => (ushort)(object)x).ToArray();
+        this.includesAll = includesAll;
     }
 
     public BattleUnitCollection(TEnemy unit)
@@ -19,5 +26,20 @@ internal class BattleUnitCollection<TEncounter, TEnemy> : IEncounterFilter<TEnco
     {
     }
 
-    public bool Match(TEncounter encounter) => encounter.BattleUnitsIds.Any(x => units.Contains(x));
+    public bool Match(TEncounter encounter)
+    {
+        if (this.includesAll)
+        {
+            if (this.units.All(unit => encounter.BattleUnitsIds.Any(x => x == unit)))
+            {
+                return true;
+            }
+
+            return false;
+        }
+        else
+        {
+            return encounter.BattleUnitsIds.Any(x => units.Contains(x));
+        }
+    }
 }

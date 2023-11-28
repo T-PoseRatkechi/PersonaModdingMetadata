@@ -1,4 +1,5 @@
 ﻿using Persona.Encounters.Types.Common;
+using Persona.Encounters.Types.Common.Collections;
 using PersonaModdingMetadata.Shared.Games;
 using PersonaModdingMetadata.Shared.Serializers;
 using Serilog;
@@ -53,23 +54,55 @@ internal class EncountersMetadata
     {
         Log.Information("Persona 4 Golden");
         var encounterTbl = new Persona.Encounters.Types.P4G.EncounterTbl(file);
+        var collectionsDir = Path.Join(encounterTbl.Game.GameFolder(this.baseDir), "collections");
+        var collections = new Persona.Encounters.Types.P4G.Collections();
+
         this.FixLocationCollections(encounterTbl);
-        this.GenerateSpecialBattles(encounterTbl);
+        GenerateCollections(collectionsDir, encounterTbl.Encounters, collections);
     }
 
     private void Generate_P5R(string file)
     {
         Log.Information("Persona 5 Royal");
         var encounterTbl = new Persona.Encounters.Types.P5R.EncounterTbl(file);
+        var collectionsDir = Path.Join(encounterTbl.Game.GameFolder(this.baseDir), "collections");
+        var collections = new Persona.Encounters.Types.P5R.Collections();
         this.FixLocationCollections(encounterTbl);
-        this.GenerateSpecialBattles(encounterTbl);
+        GenerateCollections(collectionsDir, encounterTbl.Encounters, collections);
     }
 
     private void Generate_P3P(string file)
     {
         Log.Information("Persona 3 Portable");
         var encounterTbl = new Persona.Encounters.Types.P3P.EncounterTbl(file);
-        this.GenerateSpecialBattles(encounterTbl);
+        var collectionsDir = Path.Join(encounterTbl.Game.GameFolder(this.baseDir), "collections");
+        var collections = new Persona.Encounters.Types.P3P.Collections();
+
+        GenerateCollections(collectionsDir, encounterTbl.Encounters, collections);
+    }
+
+    private static void GenerateCollections<TEncounter>(
+        string outputDir,
+        IEnumerable<TEncounter> encounters,
+        GameCollections<TEncounter> collections)
+        where TEncounter : IEncounter
+    {
+        foreach (var collection in collections)
+        {
+            var name = collection.Key;
+            var filter = collection.Value;
+
+            var collectionEncounters = encounters.Where(filter.Match).ToArray();
+            if (collectionEncounters.Length < 1)
+            {
+                Log.Warning("No encounters matched collection {name}. Skipping...", name);
+                continue;
+            }
+
+            var outputFile = Path.Join(outputDir, $"{name}.enc");
+            CollectionSerializer.Serialize(outputFile, FormatEncounters(collectionEncounters.OfType<IEncounter>()));
+            Log.Information("Created collection: {name}\nFile: {file}", name, outputFile);
+        }
     }
 
     private void FixLocationCollections<TEncounter>(BaseEncounterTbl<TEncounter> encounterTbl)
@@ -81,6 +114,9 @@ internal class EncountersMetadata
             Log.Debug("Missing: {dir}", locationsDir);
             return;
         }
+
+        var specialBattlesCollection = new SpecialBattlesCollection<TEncounter>();
+        var specialBattles = encounterTbl.Encounters.Where(specialBattlesCollection.Match).ToArray();
 
         foreach (var file in Directory.EnumerateFiles(locationsDir, "*.enc", SearchOption.AllDirectories))
         {
@@ -96,34 +132,23 @@ internal class EncountersMetadata
 
             var collection = CollectionSerializer.DeserializeFile(file);
             var fixedEncounters = collection
-                .Select(x => encounterTbl.Encounters[x])
                 .Where(x =>
                 {
-                    if (x.IsSpecialBattle)
+                    if (specialBattles.Any(battle => battle.Id == x))
                     {
-                        Log.Debug("Removed Encounter: {id}", x.Id);
+                        Log.Debug("Removed encounter: {id}", x);
                         return false;
                     }
 
                     return true;
                 })
+                .Select(x => encounterTbl.Encounters[x])
                 .ToArray();
 
             CollectionSerializer.Serialize(outputFile, FormatEncounters(fixedEncounters.OfType<IEncounter>()));
 
             Log.Information("Fixed Location Collection: {file}", outputFile);
         }
-    }
-
-    private void GenerateSpecialBattles<TEncounter>(BaseEncounterTbl<TEncounter> encounterTbl)
-        where TEncounter : IEncounter
-    {
-        var collectionsDir = Path.Join(encounterTbl.Game.GameFolder(this.baseDir), "collections");
-        Directory.CreateDirectory(collectionsDir);
-
-        var specialBattlesFile = Path.Join(collectionsDir, "Special Battles.enc");
-        CollectionSerializer.Serialize(specialBattlesFile, FormatEncounters(encounterTbl.Encounters.Where(x => x.IsSpecialBattle).OfType<IEncounter>()));
-        Console.WriteLine(specialBattlesFile);
     }
 
     private static string[] FormatEncounters(IEnumerable<IEncounter> encounters)

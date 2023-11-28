@@ -1,9 +1,9 @@
-﻿using Persona.Encounters.Types.Common;
-using Persona.Encounters.Types.Common.Collections;
+﻿using Persona.Encounters.Types.Common.Collections;
+using BattleUnitCollection = Persona.Encounters.Types.Common.Collections.BattleUnitCollection<Persona.Encounters.Types.P4G.Encounter, Persona.Encounters.Types.P4G.BattleUnit>;
 
 namespace Persona.Encounters.Types.P4G;
 
-public class Collections : Dictionary<string, IEncounterFilter<Encounter>>
+public class Collections : GameCollections<Encounter>
 {
     private readonly BattleUnit[] shadowBosses = new BattleUnit[]
     {
@@ -71,32 +71,32 @@ public class Collections : Dictionary<string, IEncounterFilter<Encounter>>
 
     public Collections()
     {
-        this["bosses/Shadow Yosuke"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.ShadowYosuke);
-        this["bosses/Shadow Chie"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.ShadowChie);
-        this["bosses/Shadow Yukiko"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.ShadowYukiko);
-        this["bosses/Shadow Kanji"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.ShadowKanji);
-        this["bosses/Shadow Rise"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.ShadowRise);
-        this["bosses/Shadow Teddie"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.ShadowTeddie);
-        this["bosses/Shadow Mitsuo"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.ShadowMitsuo);
-        this["bosses/Shadow Naoto"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.ShadowNaoto);
-        this["bosses/Kunino-Sagiri"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.Kuninosagiri);
-        this["bosses/Adachi"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.Adachi);
-        this["bosses/Ameno-sagiri"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.Amenosagiri);
-        this["bosses/Izanami"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.Izanami);
-        this["bosses/Izanami-no-Okami"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.IzanaminoOkami);
-        this["bosses/Marie"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.Marie);
-        this["bosses/Kusumi-no-Okami"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.KusuminoOkami);
-        this["bosses/Margaret"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.Margaret);
-        this["bosses/Spooky Fog Man"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.QuestionMark275);
-        this["bosses/The Reaper"] = new BattleUnitCollection<Encounter, BattleUnit>(this.reapers);
-        this["Shadow Bosses"] = new BattleUnitCollection<Encounter, BattleUnit>(this.shadowBosses);
-        this["Golden Hands"] = new BattleUnitCollection<Encounter, BattleUnit>(this.goldenHands);
+        this["bosses/Shadow Yosuke"] = new BattleUnitCollection(BattleUnit.ShadowYosuke);
+        this["bosses/Shadow Chie"] = new BattleUnitCollection(BattleUnit.ShadowChie);
+        this["bosses/Shadow Yukiko"] = new BattleUnitCollection(BattleUnit.ShadowYukiko);
+        this["bosses/Shadow Kanji"] = new BattleUnitCollection(BattleUnit.ShadowKanji);
+        this["bosses/Shadow Rise"] = new BattleUnitCollection(BattleUnit.ShadowRise);
+        this["bosses/Shadow Teddie"] = new BattleUnitCollection(BattleUnit.ShadowTeddie);
+        this["bosses/Shadow Mitsuo"] = new BattleUnitCollection(BattleUnit.ShadowMitsuo);
+        this["bosses/Shadow Naoto"] = new BattleUnitCollection(BattleUnit.ShadowNaoto);
+        this["bosses/Kunino-Sagiri"] = new BattleUnitCollection(BattleUnit.Kuninosagiri);
+        this["bosses/Adachi"] = new BattleUnitCollection(BattleUnit.Adachi);
+        this["bosses/Ameno-sagiri"] = new BattleUnitCollection(BattleUnit.Amenosagiri);
+        this["bosses/Izanami"] = new BattleUnitCollection(BattleUnit.Izanami);
+        this["bosses/Izanami-no-Okami"] = new BattleUnitCollection(BattleUnit.IzanaminoOkami);
+        this["bosses/Marie"] = new BattleUnitCollection(BattleUnit.Marie);
+        this["bosses/Kusumi-no-Okami"] = new BattleUnitCollection(BattleUnit.KusuminoOkami);
+        this["bosses/Margaret"] = new BattleUnitCollection(BattleUnit.Margaret);
+        this["bosses/Spooky Fog Man"] = new BattleUnitCollection(BattleUnit.QuestionMark275);
+        this["bosses/The Reaper"] = new BattleUnitCollection(this.reapers);
+        this["Shadow Bosses"] = new BattleUnitCollection(this.shadowBosses);
+        this["Golden Hands"] = new BattleUnitCollection(this.goldenHands);
         this["Optional Bosses"] = new EncounterIdCollection<Encounter>(this.optionalBossesIds);
         this["Minibosses"] = new EncounterIdCollection<Encounter>(this.miniBossesIds);
         this["Special Battles"] = new SpecialBattlesCollection<Encounter>();
 
         // Backwards compatability.
-        this["bosses/Namatame"] = new BattleUnitCollection<Encounter, BattleUnit>(BattleUnit.Kuninosagiri);
-        this["Reapers"] = new BattleUnitCollection<Encounter, BattleUnit>(this.reapers);
+        this["bosses/Namatame"] = new BattleUnitCollection(BattleUnit.Kuninosagiri);
+        this["Reapers"] = new BattleUnitCollection(this.reapers);
     }
 }

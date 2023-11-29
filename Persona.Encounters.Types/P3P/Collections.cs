@@ -23,6 +23,8 @@ public class Collections : GameCollections<Encounter>
 
     public Collections()
     {
+        this["Special Battles"] = new SpecialBattlesCollection<Encounter>();
+
         this["bosses/Chidori"] = new BattleUnitCollection(BattleUnit.EnemyChidori264);
         this["bosses/Elizabeth"] = new BattleUnitCollection(BattleUnit.EnemyElizabeth294);
         this["bosses/Jin"] = new BattleUnitCollection(BattleUnit.EnemyJin271);
@@ -35,7 +37,9 @@ public class Collections : GameCollections<Encounter>
         this["bosses/Margaret"] = new BattleUnitCollection(BattleUnit.EnemyMargaret299);
         this["Velvet Room"] = new BattleUnitCollection(this.velvetRoom);
         this["Strega"] = new BattleUnitCollection(this.strega);
-        this["Special Battles"] = new SpecialBattlesCollection<Encounter>();
+
+        this["Full Moon Bosses"] = new PredicateCollection<Encounter>(encounter => encounter.Music == Music.MasterOfShadow);
+        this["Minibosses"] = new PredicateCollection<Encounter>(encounter => encounter.MusicId == 6);
 
         // Backwards compatability.
         this["Velvet Room Attendants"] = new BattleUnitCollection(this.velvetRoom);

@@ -1198,7 +1198,7 @@ public class DefaultSongs : GameSongs
             Category = Category.Overworld.ToName(),
             Tags = new[] { Category.Rainy.ToName(), Category.Night.ToName() },
             CueId = 642,
-            ReplacementPath = "FEmulator/AWB/BGM.AWB/124.adx",
+            ReplacementPath = "FEmulator/AWB/BGM.AWB/125.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
         });
 
@@ -1207,7 +1207,7 @@ public class DefaultSongs : GameSongs
             Name = "Swear to My Bones (Cut)",
             Category = Category.Story.ToName(),
             CueId = 710,
-            ReplacementPath = "FEmulator/AWB/BGM.AWB/125.adx",
+            ReplacementPath = "FEmulator/AWB/BGM.AWB/126.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
         });
     }

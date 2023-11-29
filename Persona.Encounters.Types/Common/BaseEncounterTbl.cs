@@ -6,27 +6,27 @@ namespace Persona.Encounters.Types.Common;
 public abstract class BaseEncounterTbl<TEncounter>
     where TEncounter : IEncounter
 {
+    private readonly IEncounterFactory<IEncounter> factory = new EncounterFactory();
+
     public BaseEncounterTbl(
         Game game,
         string file,
         int entrySize,
-        IEncounterFactory<TEncounter> factory,
         bool isBigEndian = false)
     {
         this.Game = game;
         var stream = new FileStream(file, FileMode.Open, FileAccess.Read);
-        this.Encounters = GetEncounters(stream, entrySize, factory, isBigEndian);
+        this.Encounters = GetEncounters(game, stream, entrySize, this.factory, isBigEndian);
     }
 
     public BaseEncounterTbl(
         Game game,
         Stream stream,
         int entrySize,
-        IEncounterFactory<TEncounter> factory,
         bool isBigEndian = false)
     {
         this.Game = game;
-        this.Encounters = GetEncounters(stream, entrySize, factory, isBigEndian);
+        this.Encounters = GetEncounters(game, stream, entrySize, this.factory, isBigEndian);
     }
 
     public TEncounter[] Encounters { get; }
@@ -34,9 +34,10 @@ public abstract class BaseEncounterTbl<TEncounter>
     public Game Game { get; }
 
     private static TEncounter[] GetEncounters(
+        Game game,
         Stream stream,
         int entrySize,
-        IEncounterFactory<TEncounter> factory,
+        IEncounterFactory<IEncounter> factory,
         bool isBigEndian)
     {
         using var br = new BinaryReader(stream);
@@ -49,28 +50,7 @@ public abstract class BaseEncounterTbl<TEncounter>
         {
             var offset = (i * entrySize) + 4;
             br.BaseStream.Seek(offset, SeekOrigin.Begin);
-
-            // Skip flags and field04/06
-            br.BaseStream.Position += 8;
-            var battleUnits = new ushort[]
-            {
-                isBigEndian ? br.ReadUInt16().ToBigEndian() : br.ReadUInt16(),
-                isBigEndian ? br.ReadUInt16().ToBigEndian() : br.ReadUInt16(),
-                isBigEndian ? br.ReadUInt16().ToBigEndian() : br.ReadUInt16(),
-                isBigEndian ? br.ReadUInt16().ToBigEndian() : br.ReadUInt16(),
-                isBigEndian ? br.ReadUInt16().ToBigEndian() : br.ReadUInt16(),
-            };
-
-            // Skip field/room ids.
-            br.BaseStream.Position += 4;
-            var musicId = isBigEndian ? br.ReadUInt16().ToBigEndian() : br.ReadUInt16();
-
-            encounters[i] = factory.Create(new()
-            {
-                Id = i,
-                BattleUnitsIds = battleUnits,
-                MusicId = musicId,
-            });
+            encounters[i] = (TEncounter)factory.Create(game, i, br);
         }
 
         return encounters;

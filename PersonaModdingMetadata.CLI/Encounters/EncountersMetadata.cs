@@ -101,7 +101,8 @@ internal class EncountersMetadata
 
             var outputFile = Path.Join(outputDir, $"{name}.enc");
             CollectionSerializer.Serialize(outputFile, FormatEncounters(collectionEncounters.OfType<IEncounter>()));
-            Log.Information("Created collection: {name}\nFile: {file}", name, outputFile);
+
+            Log.Logger.CreatedFile(outputFile, "Created collection: {name}", name);
         }
     }
 
@@ -122,11 +123,11 @@ internal class EncountersMetadata
         {
             var relativePath = Path.GetRelativePath(encounterTbl.Game.OriginalFilesDir(this.baseDir), file);
             var outputFile = Path.Join(encounterTbl.Game.GameFolder(this.baseDir), relativePath);
-            if (File.Exists(outputFile))
-            {
-                Log.Debug("Location collection already exists. Delete existing collection to regenerate.");
-                continue;
-            }
+            //if (File.Exists(outputFile))
+            //{
+            //    Log.Debug("Location collection already exists. Delete existing collection to regenerate.");
+            //    continue;
+            //}
 
             Log.Information("Fixing Location Collection: {name}", Path.GetFileNameWithoutExtension(file));
 
@@ -147,7 +148,7 @@ internal class EncountersMetadata
 
             CollectionSerializer.Serialize(outputFile, FormatEncounters(fixedEncounters.OfType<IEncounter>()));
 
-            Log.Information("Fixed Location Collection: {file}", outputFile);
+            Log.Logger.CreatedFile(outputFile, "Fixed Location Collection: {name}", Path.GetFileNameWithoutExtension(file));
         }
     }
 

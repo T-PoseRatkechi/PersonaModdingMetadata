@@ -38,7 +38,7 @@ public class Collections : GameCollections<Encounter>
         this["Velvet Room"] = new BattleUnitCollection(this.velvetRoom);
         this["Strega"] = new BattleUnitCollection(this.strega);
 
-        this["Full Moon Bosses"] = new PredicateCollection<Encounter>(encounter => encounter.Music == Music.MasterOfShadow);
+        this["Full Moon Bosses"] = new PredicateCollection<Encounter>(encounter => encounter.MusicId == 2);
         this["Minibosses"] = new PredicateCollection<Encounter>(encounter => encounter.MusicId == 6);
 
         // Backwards compatability.

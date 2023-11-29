@@ -9,4 +9,8 @@ public interface IEncounter
     public ushort[] BattleUnitsIds { get; }
 
     public ushort MusicId { get; }
+
+    public ushort FieldId { get; }
+
+    public ushort RoomId { get; }
 }

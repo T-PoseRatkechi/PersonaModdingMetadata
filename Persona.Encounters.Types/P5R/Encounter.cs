@@ -4,8 +4,8 @@ namespace Persona.Encounters.Types.P5R;
 
 public class Encounter : BaseEncounter<BattleUnit, Music>
 {
-    public Encounter(EncounterData data)
-        : base(data)
+    public Encounter(int id, BinaryReader br)
+        : base(id, br, true)
     {
     }
 }

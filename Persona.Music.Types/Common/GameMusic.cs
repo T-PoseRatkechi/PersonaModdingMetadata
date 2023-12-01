@@ -2,7 +2,7 @@
 
 namespace Persona.Music.Types.Common;
 
-public class GameSongs
+public class GameMusic
 {
     public Game Game { get; set; }
 

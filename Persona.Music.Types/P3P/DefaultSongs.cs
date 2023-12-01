@@ -2,7 +2,7 @@
 
 namespace Persona.Music.Types.P3P;
 
-public class DefaultSongs : GameSongs
+public class DefaultSongs : GameMusic
 {
     public DefaultSongs()
     {

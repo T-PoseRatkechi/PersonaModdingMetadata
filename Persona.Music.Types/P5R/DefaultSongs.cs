@@ -2,7 +2,7 @@
 
 namespace Persona.Music.Types.P5R;
 
-public class DefaultSongs : GameSongs
+public class DefaultSongs : GameMusic
 {
     public DefaultSongs()
     {

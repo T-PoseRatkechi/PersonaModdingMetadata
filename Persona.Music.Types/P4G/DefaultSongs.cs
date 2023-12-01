@@ -2,7 +2,7 @@
 
 namespace Persona.Music.Types.P4G;
 
-public class DefaultSongs : GameSongs
+public class DefaultSongs : GameMusic
 {
     public DefaultSongs()
     {

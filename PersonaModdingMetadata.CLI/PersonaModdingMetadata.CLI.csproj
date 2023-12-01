@@ -10,10 +10,12 @@
   <ItemGroup>
     <PackageReference Include="Serilog" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="5.0.0" />
+    <PackageReference Include="YamlDotNet" Version="13.7.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Persona.Encounters.Types\Persona.Encounters.Types.csproj" />
+    <ProjectReference Include="..\Persona.Music.Types\Persona.Music.Types.csproj" />
   </ItemGroup>
 
 </Project>

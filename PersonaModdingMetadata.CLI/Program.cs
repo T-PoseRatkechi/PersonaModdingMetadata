@@ -1,13 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using PersonaModdingMetadata.CLI.Common;
 using PersonaModdingMetadata.CLI.Encounters;
+using PersonaModdingMetadata.CLI.Music;
 using Serilog;
 
 Console.WriteLine("Hello, World!");
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
-    .MinimumLevel.Debug()
+    .MinimumLevel.Information()
     .CreateLogger();
 
 if (args.Length < 1)
@@ -18,11 +20,21 @@ if (args.Length < 1)
 var solutionDir = args[0];
 Log.Information("Solution Directory: {dir}", solutionDir);
 
-var encountersMetadataDir = Path.Join(solutionDir, "Persona.Encounters.Metadata");
-Log.Information("Encounters Metadata Directory: {dir}", encountersMetadataDir);
+var generators = new IMetadata[]
+{
+    new EncountersMetadata(solutionDir),
+    new MusicMetadata(solutionDir),
+};
 
-var encountersMetadata = new EncountersMetadata(encountersMetadataDir);
+void GenerateMetadata()
+{
+    foreach (var generator in generators)
+    {
+        var name = generator.GetType().Name;
+        Log.Information("Generating: {name}", name);
+        generator.Generate();
+        Log.Information("Completed: {name}", name);
+    }
+}
 
-Log.Information("Generating Encounters Metadata");
-encountersMetadata.Generate();
-Log.Information("Completed Encounters Metadata");
+GenerateMetadata();

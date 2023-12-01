@@ -1,18 +1,19 @@
 ﻿using Persona.Encounters.Types.Common;
 using Persona.Encounters.Types.Common.Collections;
+using PersonaModdingMetadata.CLI.Common;
 using PersonaModdingMetadata.Shared.Games;
 using PersonaModdingMetadata.Shared.Serializers;
 using Serilog;
 
 namespace PersonaModdingMetadata.CLI.Encounters;
 
-internal class EncountersMetadata
+internal class EncountersMetadata : IMetadata
 {
     private readonly string baseDir;
 
-    public EncountersMetadata(string baseDir)
+    public EncountersMetadata(string solutionDir)
     {
-        this.baseDir = baseDir;
+        this.baseDir = Path.Join(solutionDir, "Persona.Encounters.Metadata"); ;
     }
 
     public void Generate()

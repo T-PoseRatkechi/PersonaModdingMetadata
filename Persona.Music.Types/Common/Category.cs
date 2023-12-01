@@ -13,20 +13,26 @@ public enum Category
     // Common.
     Title_Screen,
     Story,
-    Velvet_Room,
-    Menu,
     Shop,
     Location,
-    Unknown,
     Ending,
+    Unknown,
 
     // Daily life.
     Daily_Life,
-    Social_Link,
-    School,
 
-    // Overworld and weathers.
+    // Overworld.
     Overworld,
+}
+
+public enum Tag
+{
+    Main_Menu,
+
+    // P3P.
+    FEMC,
+
+    // Weather types.
     Clear,
     Sunny,
     Cloudy,
@@ -35,16 +41,25 @@ public enum Category
     Snow,
     Rainy,
 
+    // Locations.
+    School,
+    Velvet_Room,
+
     // Persona 4.
     Dojima_Residence,
     Midnight_Channel,
 
     // Persona 5.
     Palace,
+
+    // Persona 3.
+    Tartarus,
 }
 
 public static class CategoriesExtenions
 {
     public static string ToName(this Category category)
+        => category.ToString().Replace("__", ": ").Replace('_', ' ');
+    public static string ToName(this Tag category)
         => category.ToString().Replace("__", ": ").Replace('_', ' ');
 }

@@ -8,6 +8,7 @@ public class DefaultSongs : GameSongs
     {
         this.Game = PersonaModdingMetadata.Shared.Games.Game.P5R_PC;
         this.Version = 1;
+
         this.Songs.Add(new()
         {
             Name = "Endless Days",
@@ -104,7 +105,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "Gentle Madman",
             Category = Category.Location.ToName(),
-            Tags = new[] { Category.Palace.ToName() },
+            Tags = new[] { Tag.Palace.ToName() },
             CueId = 905,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/10.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -114,7 +115,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "Out of Kindness",
             Category = Category.Location.ToName(),
-            Tags = new[] { Category.Palace.ToName() },
+            Tags = new[] { Tag.Palace.ToName() },
             CueId = 906,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/11.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -299,8 +300,8 @@ public class DefaultSongs : GameSongs
         this.Songs.Add(new()
         {
             Name = "Royal Days",
-            Category = Category.Menu.ToName(),
-            Tags = new[] { Category.Title_Screen.ToName() },
+            Category = Category.Title_Screen.ToName(),
+            Tags = new[] { Tag.Main_Menu.ToName() },
             CueId = 901,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/30.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -543,7 +544,7 @@ public class DefaultSongs : GameSongs
         this.Songs.Add(new()
         {
             Name = "The Spirit",
-            Category = Category.Social_Link.ToName(),
+            Category = Category.Story.ToName(),
             CueId = 700,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/56.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -661,7 +662,6 @@ public class DefaultSongs : GameSongs
         {
             Name = "So Boring",
             Category = Category.Daily_Life.ToName(),
-            Tags = new[] { Category.School.ToName() },
             CueId = 36,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/69.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -846,7 +846,6 @@ public class DefaultSongs : GameSongs
         {
             Name = "Life Goes On",
             Category = Category.Daily_Life.ToName(),
-            Tags = new[] { Category.School.ToName() },
             CueId = 37,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/89.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -873,8 +872,8 @@ public class DefaultSongs : GameSongs
         this.Songs.Add(new()
         {
             Name = "Phantom",
-            Category = Category.Menu.ToName(),
-            Tags = new[] { Category.Title_Screen.ToName(), "Original" },
+            Category = Category.Title_Screen.ToName(),
+            Tags = new[] { Tag.Main_Menu.ToName(), "Original" },
             ReplacementPath = "FEmulator/AWB/BGM.AWB/92.adx",
             CueId = 101,
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -884,7 +883,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "Sweatshop -another version-",
             Category = Category.Location.ToName(),
-            Tags = new[] { Category.Palace.ToName() },
+            Tags = new[] { Tag.Palace.ToName() },
             CueId = 441,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/93.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -894,7 +893,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "Sweatshop",
             Category = Category.Location.ToName(),
-            Tags = new[] { Category.Palace.ToName() },
+            Tags = new[] { Tag.Palace.ToName() },
             CueId = 440,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/94.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -904,7 +903,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "Price -another version-",
             Category = Category.Location.ToName(),
-            Tags = new[] { Category.Palace.ToName() },
+            Tags = new[] { Tag.Palace.ToName() },
             CueId = 422,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/95.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -914,7 +913,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "Price",
             Category = Category.Location.ToName(),
-            Tags = new[] { Category.Palace.ToName() },
+            Tags = new[] { Tag.Palace.ToName() },
             CueId = 420,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/96.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -924,7 +923,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "King, Queen, And Slaves -another version-",
             Category = Category.Location.ToName(),
-            Tags = new[] { Category.Palace.ToName() },
+            Tags = new[] { Tag.Palace.ToName() },
             CueId = 17,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/97.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -934,7 +933,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "King, Queen, And Slaves",
             Category = Category.Location.ToName(),
-            Tags = new[] { Category.Palace.ToName() },
+            Tags = new[] { Tag.Palace.ToName() },
             CueId = 400,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/98.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -954,7 +953,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "When Mother Was There -another version-",
             Category = Category.Location.ToName(),
-            Tags = new[] { Category.Palace.ToName() },
+            Tags = new[] { Tag.Palace.ToName() },
             CueId = 432,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/100.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -964,7 +963,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "When Mother Was There",
             Category = Category.Location.ToName(),
-            Tags = new[] { Category.Palace.ToName() },
+            Tags = new[] { Tag.Palace.ToName() },
             CueId = 430,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/101.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -974,7 +973,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "A Woman -another version-",
             Category = Category.Location.ToName(),
-            Tags = new[] { Category.Palace.ToName() },
+            Tags = new[] { Tag.Palace.ToName() },
             CueId = 411,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/102.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -984,7 +983,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "A Woman",
             Category = Category.Location.ToName(),
-            Tags = new[] { Category.Palace.ToName() },
+            Tags = new[] { Tag.Palace.ToName() },
             CueId = 410,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/103.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -1014,7 +1013,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "The Whims of Fate",
             Category = Category.Location.ToName(),
-            Tags = new[] { Category.Palace.ToName() },
+            Tags = new[] { Tag.Palace.ToName() },
             CueId = 450,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/106.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -1024,7 +1023,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "Ark",
             Category = Category.Location.ToName(),
-            Tags = new[] { Category.Palace.ToName() },
+            Tags = new[] { Tag.Palace.ToName() },
             CueId = 460,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/107.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -1136,7 +1135,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "Hymn of the Soul",
             Category = Category.Location.ToName(),
-            Tags = new[] { Category.Velvet_Room.ToName() },
+            Tags = new[] { Tag.Velvet_Room.ToName() },
             CueId = 400,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/119.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -1156,7 +1155,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "Tokyo Daylight",
             Category = Category.Overworld.ToName(),
-            Tags = new[] { Category.Sunny.ToName() },
+            Tags = new[] { Tag.Sunny.ToName() },
             CueId = 610,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/121.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -1166,7 +1165,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "Beneath the Mask -instrumental version-",
             Category = Category.Overworld.ToName(),
-            Tags = new[] { Category.Clear.ToName() },
+            Tags = new[] { Tag.Clear.ToName() },
             CueId = 600,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/122.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -1176,7 +1175,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "Beneath the Mask",
             Category = Category.Overworld.ToName(),
-            Tags = new[] { Category.Clear.ToName(), Category.Night.ToName() },
+            Tags = new[] { Tag.Clear.ToName(), Tag.Night.ToName() },
             CueId = 640,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/123.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -1186,7 +1185,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "Beneath the Mask -rain, instrumental version-",
             Category = Category.Overworld.ToName(),
-            Tags = new[] { Category.Rainy.ToName() },
+            Tags = new[] { Tag.Rainy.ToName() },
             CueId = 641,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/124.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -1196,7 +1195,7 @@ public class DefaultSongs : GameSongs
         {
             Name = "Beneath the Mask -rain-",
             Category = Category.Overworld.ToName(),
-            Tags = new[] { Category.Rainy.ToName(), Category.Night.ToName() },
+            Tags = new[] { Tag.Rainy.ToName(), Tag.Night.ToName() },
             CueId = 642,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/125.adx",
             Encoder = "ADX (Persona 5 Royal PC)",

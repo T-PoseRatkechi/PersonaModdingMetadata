@@ -8,6 +8,8 @@ public class DefaultSongs : GameMusic
     {
         this.Game = PersonaModdingMetadata.Shared.Games.Game.P4G_PC;
         this.Version = 1;
+        this.DefaultBaseReplacementPath = "FEmulator/AWB/snd00_bgm.awb";
+        this.DefaultEncoder = "HCA";
 
         this.Songs.Add(new()
         {

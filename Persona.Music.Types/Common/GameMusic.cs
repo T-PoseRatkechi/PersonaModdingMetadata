@@ -8,5 +8,9 @@ public class GameMusic
 
     public int Version { get; set; }
 
+    public string DefaultBaseReplacementPath { get; set; } = string.Empty;
+
+    public string? DefaultEncoder { get; set; }
+
     public List<Song> Songs { get; set; } = new();
 }

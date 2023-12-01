@@ -8,6 +8,8 @@ public class DefaultSongs : GameMusic
     {
         this.Game = PersonaModdingMetadata.Shared.Games.Game.P3P_PC;
         this.Version = 1;
+        this.DefaultBaseReplacementPath = "P5REssentials/CPK/Phos Music Manager/data/sound/bgm";
+        this.DefaultEncoder = "ADX";
 
         this.Songs.Add(new()
         {

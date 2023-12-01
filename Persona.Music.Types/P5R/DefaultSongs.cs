@@ -8,6 +8,8 @@ public class DefaultSongs : GameMusic
     {
         this.Game = PersonaModdingMetadata.Shared.Games.Game.P5R_PC;
         this.Version = 1;
+        this.DefaultBaseReplacementPath = "FEmulator/AWB/BGM.AWB";
+        this.DefaultEncoder = "ADX (Persona 5 Royal PC)";
 
         this.Songs.Add(new()
         {
@@ -30,7 +32,8 @@ public class DefaultSongs : GameMusic
         this.Songs.Add(new()
         {
             Name = "No More What Ifs -instrumental version-",
-            Category = "Thieve's Den",
+            Category = Category.Location.ToName(),
+            Tags = new[] { "Thieve's Den" },
             CueId = 939,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/2.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
@@ -1105,7 +1108,7 @@ public class DefaultSongs : GameMusic
 
         this.Songs.Add(new()
         {
-            Name = " Rivers in the Desert -instrumental version-",
+            Name = "Rivers in the Desert -instrumental version-",
             Category = Category.Boss_Battle.ToName(),
             CueId = 332,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/116.adx",

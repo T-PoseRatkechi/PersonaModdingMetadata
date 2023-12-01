@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="P5R_PC\" />
+    <Folder Include="P4G_PC\" />
+    <Folder Include="P3P_PC\" />
+  </ItemGroup>
+
+</Project>

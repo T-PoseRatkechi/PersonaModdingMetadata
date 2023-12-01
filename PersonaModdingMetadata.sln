@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persona.Encounters.Types", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonaModdingMetadata.Shared", "PersonaModdingMetadata.Shared\PersonaModdingMetadata.Shared.csproj", "{28112669-48E1-4107-9DB4-E1911FD36319}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonaModdingMetadata.Shared.Tests", "PersonaModdingMetadata.Shared.Tests\PersonaModdingMetadata.Shared.Tests.csproj", "{E1DDC947-8459-4297-B4C3-55C7208AC8E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonaModdingMetadata.Shared.Tests", "PersonaModdingMetadata.Shared.Tests\PersonaModdingMetadata.Shared.Tests.csproj", "{E1DDC947-8459-4297-B4C3-55C7208AC8E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persona.Music.Types", "Persona.Music.Types\Persona.Music.Types.csproj", "{A1AE9A7E-2EC2-4172-99F3-3D39E7100DA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persona.Music.Types.Tests", "Persona.Music.Types.Tests\Persona.Music.Types.Tests.csproj", "{1355B2CF-04B2-46E2-927F-3B21AF3F5799}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{E1DDC947-8459-4297-B4C3-55C7208AC8E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1DDC947-8459-4297-B4C3-55C7208AC8E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1DDC947-8459-4297-B4C3-55C7208AC8E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1AE9A7E-2EC2-4172-99F3-3D39E7100DA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1AE9A7E-2EC2-4172-99F3-3D39E7100DA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1AE9A7E-2EC2-4172-99F3-3D39E7100DA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1AE9A7E-2EC2-4172-99F3-3D39E7100DA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1355B2CF-04B2-46E2-927F-3B21AF3F5799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1355B2CF-04B2-46E2-927F-3B21AF3F5799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1355B2CF-04B2-46E2-927F-3B21AF3F5799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1355B2CF-04B2-46E2-927F-3B21AF3F5799}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

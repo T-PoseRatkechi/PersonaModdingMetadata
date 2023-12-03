@@ -391,8 +391,7 @@ public class DefaultSongs : GameMusic
 
         this.Songs.Add(new()
         {
-            Name = "Rivers in the Desert -instrumental version-",
-            Tags = new[] { "Cut" },
+            Name = "Rivers in the Desert -instrumental version- (Cut)",
             CueId = 337,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/39.adx",
             Encoder = "ADX (Persona 5 Royal PC)",

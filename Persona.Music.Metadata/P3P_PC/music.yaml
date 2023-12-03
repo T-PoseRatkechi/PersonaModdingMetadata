@@ -157,7 +157,7 @@ Songs:
   Tags:
   - School
   - 2nd Semester
-  CueId: 50
+  CueId: 51
   ReplacementPath: P5REssentials/CPK/Phos Music Manager/data/sound/bgm/51.adx
   Encoder: ADX
 - Name: Memories of the School (Another Version)
@@ -165,7 +165,7 @@ Songs:
   Tags:
   - School
   - January
-  CueId: 50
+  CueId: 52
   ReplacementPath: P5REssentials/CPK/Phos Music Manager/data/sound/bgm/52.adx
   Encoder: ADX
 - Name: Iwatodai Dorm

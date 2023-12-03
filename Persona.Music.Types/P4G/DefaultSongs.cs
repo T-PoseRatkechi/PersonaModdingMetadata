@@ -505,7 +505,7 @@ public class DefaultSongs : GameMusic
             Name = "Girl of the Hollow Forest (unused)",
             Category = Category.Location.ToName(),
             Tags = new[] { Tag.Midnight_Channel.ToName() },
-            CueId = 50,
+            CueId = 58,
             ReplacementPath = "FEmulator/AWB/snd00_bgm.awb/80.hca",
             Encoder = "HCA",
         });

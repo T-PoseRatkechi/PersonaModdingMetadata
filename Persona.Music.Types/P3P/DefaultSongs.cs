@@ -235,7 +235,7 @@ public class DefaultSongs : GameMusic
             Name = "Changing Seasons",
             Category = Category.Location.ToName(),
             Tags = new[] { Tag.School.ToName(), "2nd Semester" },
-            CueId = 50,
+            CueId = 51,
             ReplacementPath = "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/51.adx",
             Encoder = "ADX",
         });
@@ -245,7 +245,7 @@ public class DefaultSongs : GameMusic
             Name = "Memories of the School (Another Version)",
             Category = Category.Location.ToName(),
             Tags = new[] { Tag.School.ToName(), "January" },
-            CueId = 50,
+            CueId = 52,
             ReplacementPath = "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/52.adx",
             Encoder = "ADX",
         });

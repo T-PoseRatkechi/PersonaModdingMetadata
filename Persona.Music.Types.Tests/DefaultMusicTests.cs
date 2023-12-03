@@ -40,4 +40,22 @@ public class DefaultMusicTests
                 }), $"{game}: {currentSong}");
         }
     }
+
+    [Fact]
+    public void DefaultMusic_NoDuplicate_CueIds()
+    {
+        foreach (var game in Enum.GetValues<Game>())
+        {
+            var defaultMusic = DefaultGameMusic.For(game);
+            var currentSong = string.Empty;
+
+            Assert.True(defaultMusic.Songs
+                .GroupBy(x => x.CueId)
+                .All(x =>
+                {
+                    currentSong = x.Last().Name;
+                    return x.Count() == 1;
+                }), $"{game}: {currentSong}");
+        }
+    }
 }

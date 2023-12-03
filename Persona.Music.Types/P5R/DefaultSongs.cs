@@ -1138,7 +1138,7 @@ public class DefaultSongs : GameMusic
             Name = "Hymn of the Soul",
             Category = Category.Location.ToName(),
             Tags = new[] { Tag.Velvet_Room.ToName() },
-            CueId = 400,
+            CueId = 500,
             ReplacementPath = "FEmulator/AWB/BGM.AWB/119.adx",
             Encoder = "ADX (Persona 5 Royal PC)",
         });

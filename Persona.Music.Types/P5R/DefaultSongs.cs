@@ -1125,7 +1125,7 @@ public class DefaultSongs : GameMusic
 
         this.Songs.Add(new()
         {
-            Name = "Last Suprise",
+            Name = "Last Surprise",
             Category = Category.Normal_Battle.ToName(),
             Tags = new[] { Category.Context__Normal.ToName() },
             CueId = 300,

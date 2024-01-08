@@ -30,7 +30,21 @@ internal class BattleUnitCollection<TEncounter, TEnemy> : IEncounterFilter<TEnco
     {
         if (this.includesAll)
         {
-            if (this.units.All(unit => encounter.BattleUnitsIds.Any(x => x == unit)))
+            // Match enemies by location if all battle units
+            // defined.
+            if (this.units.Length == 5)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if (encounter.BattleUnitsIds[i] != this.units[i])
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+            else if (this.units.All(unit => encounter.BattleUnitsIds.Any(x => x == unit)))
             {
                 return true;
             }

@@ -23,6 +23,7 @@ internal class MusicMetadata : IMetadata
         foreach (var game in Enum.GetValues<Game>())
         {
             var musicFile = Path.Join(game.GameFolder(this.baseDir), "music.yaml");
+            Directory.CreateDirectory(Path.GetDirectoryName(musicFile)!);
             var defaultMusic = DefaultGameMusic.For(game);
             var yaml = serializer.Serialize(defaultMusic);
             File.WriteAllText(musicFile, yaml);

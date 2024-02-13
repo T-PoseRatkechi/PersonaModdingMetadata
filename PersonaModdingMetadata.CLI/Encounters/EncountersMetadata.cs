@@ -21,6 +21,7 @@ internal class EncountersMetadata : IMetadata
         this.GenerateGame(Game.P4G_PC);
         this.GenerateGame(Game.P5R_PC);
         this.GenerateGame(Game.P3P_PC);
+        this.GenerateGame(Game.P3R_PC);
     }
 
     private void GenerateGame(Game game)
@@ -45,6 +46,9 @@ internal class EncountersMetadata : IMetadata
                 break;
             case Game.P3P_PC:
                 this.Generate_P3P(encountFile);
+                break;
+            case Game.P3R_PC:
+                this.Generate_P3R(encountFile);
                 break;
             default:
                 break;
@@ -78,6 +82,16 @@ internal class EncountersMetadata : IMetadata
         var encounterTbl = new Persona.Encounters.Types.P3P.EncounterTbl(file);
         var collectionsDir = Path.Join(encounterTbl.Game.GameFolder(this.baseDir), "collections");
         var collections = new Persona.Encounters.Types.P3P.Collections();
+
+        GenerateCollections(collectionsDir, encounterTbl.Encounters, collections);
+    }
+
+    private void Generate_P3R(string file)
+    {
+        Log.Information("Persona 3 Reload");
+        var encounterTbl = new Persona.Encounters.Types.P3R.EncounterTbl(file);
+        var collectionsDir = Path.Join(encounterTbl.Game.GameFolder(this.baseDir), "collections");
+        var collections = new Persona.Encounters.Types.P3R.Collections();
 
         GenerateCollections(collectionsDir, encounterTbl.Encounters, collections);
     }

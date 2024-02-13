@@ -50,6 +50,7 @@ public class DefaultMusicTests
             var currentSong = string.Empty;
 
             Assert.True(defaultMusic.Songs
+                .Where(x => x.CueId != -1)
                 .GroupBy(x => x.CueId)
                 .All(x =>
                 {

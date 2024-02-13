@@ -6,7 +6,7 @@ namespace Persona.Encounters.Types.Common;
 public abstract class BaseEncounterTbl<TEncounter>
     where TEncounter : IEncounter
 {
-    private readonly IEncounterFactory<IEncounter> factory = new EncounterFactory();
+    protected readonly IEncounterFactory<IEncounter> factory = new EncounterFactory();
 
     public BaseEncounterTbl(
         Game game,
@@ -16,7 +16,7 @@ public abstract class BaseEncounterTbl<TEncounter>
     {
         this.Game = game;
         var stream = new FileStream(file, FileMode.Open, FileAccess.Read);
-        this.Encounters = GetEncounters(game, stream, entrySize, this.factory, isBigEndian);
+        this.Encounters = GetEncounters(game, stream, entrySize, isBigEndian);
     }
 
     public BaseEncounterTbl(
@@ -26,18 +26,17 @@ public abstract class BaseEncounterTbl<TEncounter>
         bool isBigEndian = false)
     {
         this.Game = game;
-        this.Encounters = GetEncounters(game, stream, entrySize, this.factory, isBigEndian);
+        this.Encounters = GetEncounters(game, stream, entrySize, isBigEndian);
     }
 
     public TEncounter[] Encounters { get; }
 
     public Game Game { get; }
 
-    private static TEncounter[] GetEncounters(
+    protected virtual TEncounter[] GetEncounters(
         Game game,
         Stream stream,
         int entrySize,
-        IEncounterFactory<IEncounter> factory,
         bool isBigEndian)
     {
         using var br = new BinaryReader(stream);

@@ -77,7 +77,7 @@ public class DefaultSongs : GameMusic
 
         this.Songs.Add(new()
         {
-            Name = "Master Of Shadows",
+            Name = "Master Of Shadow",
             Category = Category.Boss_Battle.ToName(),
             CueId = 27,
             ReplacementPath = "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/27.adx",
@@ -181,6 +181,16 @@ public class DefaultSongs : GameMusic
             Category = Category.Story.ToName(),
             CueId = 40,
             ReplacementPath = "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/40.adx",
+            Encoder = "ADX",
+        });
+
+        this.Songs.Add(new()
+        {
+            Name = "Memories of You",
+            Category = Category.Story.ToName(),
+            Tags = new[] { "Ending" },
+            CueId = 42,
+            ReplacementPath = "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/42.adx",
             Encoder = "ADX",
         });
 
@@ -521,16 +531,6 @@ public class DefaultSongs : GameMusic
             Tags = new[] { "The Answer Ending Theme" },
             CueId = 115,
             ReplacementPath = "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/115.adx",
-            Encoder = "ADX",
-        });
-
-        this.Songs.Add(new()
-        {
-            Name = "Memories of You",
-            Category = Category.Story.ToName(),
-            Tags = new[] { "Ending" },
-            CueId = 42,
-            ReplacementPath = "P5REssentials/CPK/Phos Music Manager/data/sound/bgm/42.adx",
             Encoder = "ADX",
         });
 

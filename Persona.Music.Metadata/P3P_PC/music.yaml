@@ -47,7 +47,7 @@ Songs:
   CueId: 26
   ReplacementPath: P5REssentials/CPK/Phos Music Manager/data/sound/bgm/26.adx
   Encoder: ADX
-- Name: Master Of Shadows
+- Name: Master Of Shadow
   Category: Boss Battle
   Tags: []
   CueId: 27
@@ -119,6 +119,13 @@ Songs:
   Tags: []
   CueId: 40
   ReplacementPath: P5REssentials/CPK/Phos Music Manager/data/sound/bgm/40.adx
+  Encoder: ADX
+- Name: Memories of You
+  Category: Story
+  Tags:
+  - Ending
+  CueId: 42
+  ReplacementPath: P5REssentials/CPK/Phos Music Manager/data/sound/bgm/42.adx
   Encoder: ADX
 - Name: Joy (Social Links)
   Category: Story
@@ -360,13 +367,6 @@ Songs:
   - The Answer Ending Theme
   CueId: 115
   ReplacementPath: P5REssentials/CPK/Phos Music Manager/data/sound/bgm/115.adx
-  Encoder: ADX
-- Name: Memories of You
-  Category: Story
-  Tags:
-  - Ending
-  CueId: 42
-  ReplacementPath: P5REssentials/CPK/Phos Music Manager/data/sound/bgm/42.adx
   Encoder: ADX
 - Name: Time
   Category: Location

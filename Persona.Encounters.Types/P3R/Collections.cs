@@ -43,7 +43,7 @@ public class Collections : GameCollections<Encounter>
         this["bosses/The Reaper"] = new BattleUnitCollection(BattleUnit.TheReaper);
         this["Strega"] = new BattleUnitCollection(this.strega);
 
-        this["Full Moon Bosses"] = new PredicateCollection<Encounter>(encounter => encounter.Music == Music.MasterofShadowReload);
-        this["Minibosses"] = new PredicateCollection<Encounter>(encounter => encounter.Music == Music.MasterofTartarusReload);
+        this["Full Moon Bosses"] = new PredicateCollection<Encounter>(encounter => encounter.Music == Music.MasterOfShadow);
+        this["Minibosses"] = new PredicateCollection<Encounter>(encounter => encounter.Music == Music.MasterOfTartarus);
     }
 }

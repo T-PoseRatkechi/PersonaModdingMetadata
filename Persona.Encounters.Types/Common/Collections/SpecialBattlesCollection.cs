@@ -8,8 +8,6 @@ public class SpecialBattlesCollection<TEncounter> : IEncounterFilter<TEncounter>
     private readonly BattleUnitCollection<IEncounter, BattleUnit> emptyBattles
         = new(new BattleUnit[] { BattleUnit.NotUsed, BattleUnit.NotUsed, BattleUnit.NotUsed, BattleUnit.NotUsed, BattleUnit.NotUsed }, true);
 
-    private readonly EncounterIdCollection<TEncounter> unusedBattles = new(new int[] { 734, 735, 746, 838, 780 });
-
     public bool Match(TEncounter encounter)
     {
         if (encounter.MusicId != 0)
@@ -18,11 +16,6 @@ public class SpecialBattlesCollection<TEncounter> : IEncounterFilter<TEncounter>
         }
 
         if (this.emptyBattles.Match(encounter))
-        {
-            return true;
-        }
-
-        if (this.unusedBattles.Match(encounter))
         {
             return true;
         }

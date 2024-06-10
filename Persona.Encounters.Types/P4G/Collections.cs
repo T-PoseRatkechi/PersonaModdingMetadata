@@ -26,8 +26,8 @@ public class Collections : GameCollections<Encounter>
         BattleUnit.SupremeHand,
         BattleUnit.GloriousHand,
         BattleUnit.IsolatedHand,
+        BattleUnit.TreasureHand,
     };
-
 
     private readonly BattleUnit[] reapers = new BattleUnit[]
     {

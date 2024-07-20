@@ -1,4 +1,5 @@
 ﻿using Persona.Encounters.Types.Common.Collections;
+using PersonaModdingMetadata.Shared.Games;
 using BattleUnitCollection = Persona.Encounters.Types.Common.Collections.BattleUnitCollection<Persona.Encounters.Types.P5R.Encounter, Persona.Encounters.Types.P5R.BattleUnit>;
 
 namespace Persona.Encounters.Types.P5R;
@@ -70,7 +71,7 @@ public class Collections : GameCollections<Encounter>
 
     public Collections()
     {
-        this["Special Battles"] = new SpecialBattlesCollection<Encounter>();
+        this["Special Battles"] = new SpecialBattlesCollection<Encounter>(Game.P5R_PC);
 
         // Bosses.
         this["bosses/Kamoshida"] = new BattleUnitCollection(this.kamoshida);

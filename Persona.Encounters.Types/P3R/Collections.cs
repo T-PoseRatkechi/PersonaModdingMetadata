@@ -1,4 +1,5 @@
 ﻿using Persona.Encounters.Types.Common.Collections;
+using PersonaModdingMetadata.Shared.Games;
 using BattleUnitCollection = Persona.Encounters.Types.Common.Collections.BattleUnitCollection<Persona.Encounters.Types.P3R.Encounter, Persona.Encounters.Types.P3R.BattleUnit>;
 
 namespace Persona.Encounters.Types.P3R;
@@ -31,7 +32,7 @@ public class Collections : GameCollections<Encounter>
 
     public Collections()
     {
-        this["Special Battles"] = new SpecialBattlesCollection<Encounter>();
+        this["Special Battles"] = new SpecialBattlesCollection<Encounter>(Game.P3R_PC);
 
         this["bosses/Chidori"] = new BattleUnitCollection(BattleUnit.Chidori);
         this["bosses/Elizabeth"] = new BattleUnitCollection(this.elizabeth);

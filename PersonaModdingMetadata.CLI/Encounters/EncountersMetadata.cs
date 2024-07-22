@@ -62,7 +62,7 @@ internal class EncountersMetadata : IMetadata
         var collectionsDir = Path.Join(encounterTbl.Game.GameFolder(this.baseDir), "collections");
         var collections = new Persona.Encounters.Types.P4G.Collections();
 
-        this.FixLocationCollections(encounterTbl, Game.P4G_PC);
+        this.FixLocationCollections(encounterTbl);
         GenerateCollections(collectionsDir, encounterTbl.Encounters, collections);
     }
 
@@ -72,7 +72,7 @@ internal class EncountersMetadata : IMetadata
         var encounterTbl = new Persona.Encounters.Types.P5R.EncounterTbl(file);
         var collectionsDir = Path.Join(encounterTbl.Game.GameFolder(this.baseDir), "collections");
         var collections = new Persona.Encounters.Types.P5R.Collections();
-        this.FixLocationCollections(encounterTbl, Game.P5R_PC);
+        this.FixLocationCollections(encounterTbl);
         GenerateCollections(collectionsDir, encounterTbl.Encounters, collections);
     }
 
@@ -121,7 +121,7 @@ internal class EncountersMetadata : IMetadata
         }
     }
 
-    private void FixLocationCollections<TEncounter>(BaseEncounterTbl<TEncounter> encounterTbl, Game game)
+    private void FixLocationCollections<TEncounter>(BaseEncounterTbl<TEncounter> encounterTbl)
         where TEncounter : IEncounter
     {
         var locationsDir = Path.Join(encounterTbl.Game.OriginalFilesDir(this.baseDir), "collections", "locations");
@@ -131,7 +131,7 @@ internal class EncountersMetadata : IMetadata
             return;
         }
 
-        var specialBattlesCollection = new SpecialBattlesCollection<TEncounter>(game);
+        var specialBattlesCollection = new SpecialBattlesCollection<TEncounter>();
         var specialBattles = encounterTbl.Encounters.Where(specialBattlesCollection.Match).ToArray();
 
         foreach (var file in Directory.EnumerateFiles(locationsDir, "*.enc", SearchOption.AllDirectories))

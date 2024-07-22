@@ -1,5 +1,4 @@
 ﻿using Persona.Encounters.Types.Common.Collections;
-using PersonaModdingMetadata.Shared.Games;
 using BattleUnitCollection = Persona.Encounters.Types.Common.Collections.BattleUnitCollection<Persona.Encounters.Types.P4G.Encounter, Persona.Encounters.Types.P4G.BattleUnit>;
 
 namespace Persona.Encounters.Types.P4G;
@@ -94,7 +93,7 @@ public class Collections : GameCollections<Encounter>
         this["Golden Hands"] = new BattleUnitCollection(this.goldenHands);
         this["Optional Bosses"] = new EncounterIdCollection<Encounter>(this.optionalBossesIds);
         this["Minibosses"] = new EncounterIdCollection<Encounter>(this.miniBossesIds);
-        this["Special Battles"] = new SpecialBattlesCollection<Encounter>(Game.P4G_PC);
+        this["Special Battles"] = new SpecialBattlesCollection<Encounter>();
 
         // Backwards compatability.
         this["bosses/Namatame"] = new BattleUnitCollection(BattleUnit.Kuninosagiri);

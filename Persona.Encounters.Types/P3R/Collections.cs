@@ -29,6 +29,27 @@ public class Collections : GameCollections<Encounter>
         BattleUnit.Takaya3,
     };
 
+    private readonly BattleUnit[] fullmoon = new BattleUnit[]
+    {
+        BattleUnit.Priestess,
+        BattleUnit.Emperor,
+        BattleUnit.Emperor2,
+        BattleUnit.Emperor3,
+        BattleUnit.Emperor4,
+        BattleUnit.Empress,
+        BattleUnit.Empress2,
+        BattleUnit.Empress3,
+        BattleUnit.Hierophant,
+        BattleUnit.Lovers,
+        BattleUnit.Chariot,
+        BattleUnit.Justice,
+        BattleUnit.ShadowoftheAbyss,
+        BattleUnit.Hermit,
+        BattleUnit.Fortune,
+        BattleUnit.Strength,
+        BattleUnit.HangedMan,
+    };
+
     public Collections()
     {
         this["Special Battles"] = new SpecialBattlesCollection<Encounter>();
@@ -43,7 +64,7 @@ public class Collections : GameCollections<Encounter>
         this["bosses/The Reaper"] = new BattleUnitCollection(BattleUnit.TheReaper);
         this["Strega"] = new BattleUnitCollection(this.strega);
 
-        this["Full Moon Bosses"] = new PredicateCollection<Encounter>(encounter => encounter.Music == Music.MasterOfShadow);
+        this["Full Moon Bosses"] = new BattleUnitCollection(this.fullmoon);
         this["Minibosses"] = new PredicateCollection<Encounter>(encounter => encounter.Music == Music.MasterOfTartarus);
     }
 }

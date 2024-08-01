@@ -15,6 +15,7 @@ Log.Logger = new LoggerConfiguration()
 if (args.Length < 1)
 {
     Log.Error("Missing solution directory arg.");
+    return;
 }
 
 var solutionDir = args[0];

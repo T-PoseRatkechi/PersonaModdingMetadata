@@ -94,6 +94,9 @@ public class Collections : GameCollections<Encounter>
         this["bosses/Yaldabaoth Phase 1"] = new EncounterIdCollection<Encounter>(785);
         this["bosses/Yaldabaoth Phase 2"] = new EncounterIdCollection<Encounter>(788);
 
+        // Mini-bosses.
+        this["Minibosses"] = new PredicateCollection<Encounter>(x => x.Music == Music.KeeperOfLust);
+
         // Royal battles.
         this["bosses/Sumire"] = new BattleUnitCollection(BattleUnit.Sumire);
         this["bosses/Maruki and Kasumi Phase 1"] = new EncounterIdCollection<Encounter>(853);
